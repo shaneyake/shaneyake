@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `password` varchar(150) NOT NULL,
   `md5_username` varchar(150) NOT NULL,
   `email` varchar(150) NOT NULL,
-  `login_period` int(3) NOT NULL DEFAULT '30',
+  `login_period` int(3) NOT NULL DEFAULT '30'
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
 ALTER TABLE `accounts`
  ADD PRIMARY KEY (`id`);
