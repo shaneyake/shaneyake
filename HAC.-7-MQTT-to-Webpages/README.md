@@ -18,7 +18,6 @@ ALTER TABLE `accounts` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMEN
 CREATE TABLE IF NOT EXISTS `logins` (
 `id` int(100) NOT NULL,
   `md5_username` varchar(100) NOT NULL,
-  `expiry_date` varchar(100) NOT NULL,
   `WS_token` varchar(100) NOT NULL,
   `expiry_date` varchar(100) NOT NULL,
   `active` int(1) NOT NULL DEFAULT '0'
