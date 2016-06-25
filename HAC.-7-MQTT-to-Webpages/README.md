@@ -12,9 +12,8 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `email` varchar(150) NOT NULL,
   `login_period` int(3) NOT NULL DEFAULT '30'
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
-ALTER TABLE `accounts`
- ADD PRIMARY KEY (`id`);
- MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
+ALTER TABLE `accounts` ADD PRIMARY KEY (`id`);
+ALTER TABLE `accounts` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
 
 CREATE TABLE IF NOT EXISTS `logins` (
 `id` int(100) NOT NULL,
@@ -24,9 +23,8 @@ CREATE TABLE IF NOT EXISTS `logins` (
   `expiry_date` varchar(100) NOT NULL,
   `active` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
-ALTER TABLE `logins`
- ADD PRIMARY KEY (`id`);
- MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
+ALTER TABLE `logins` ADD PRIMARY KEY (`id`);
+ALTER TABLE `logins` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
  
  CREATE TABLE IF NOT EXISTS `websockets_acls` (
 `id` int(11) NOT NULL,
@@ -35,9 +33,8 @@ ALTER TABLE `logins`
   `rw` int(1) NOT NULL DEFAULT '1',
   `device_id` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
-ALTER TABLE `websockets_acls`
- ADD PRIMARY KEY (`id`);
- MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
+ALTER TABLE `websockets_acls` ADD PRIMARY KEY (`id`);
+ALTER TABLE `websockets_acls` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
  
  CREATE TABLE IF NOT EXISTS `websockets_conlist` (
 `id` int(10) NOT NULL,
@@ -48,9 +45,8 @@ ALTER TABLE `websockets_acls`
   `IP` varchar(100) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
-ALTER TABLE `websockets_conlist`
- ADD PRIMARY KEY (`id`);
- MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
+ALTER TABLE `websockets_conlist` ADD PRIMARY KEY (`id`);
+ALTER TABLE `websockets_conlist` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
  
 CREATE TABLE IF NOT EXISTS `websockets_topics` (
 `id` int(10) NOT NULL,
@@ -66,8 +62,7 @@ CREATE TABLE IF NOT EXISTS `websockets_topics` (
   `topic9` varchar(1000) NOT NULL,
   `topic10` varchar(1000) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
-ALTER TABLE `websockets_topics`
- ADD PRIMARY KEY (`id`);
- MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
+ALTER TABLE `websockets_topics` ADD PRIMARY KEY (`id`);
+ALTER TABLE `websockets_topics` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
 
 
