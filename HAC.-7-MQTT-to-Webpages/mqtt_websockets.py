@@ -124,7 +124,7 @@ class SimpleChat(WebSocket):
         print(jason_message)
         #print('Hello2')
         try:
-            sql2 ="SELECT `logged_in`,`username_md5` FROM `iot_server`.`websockets_conlist` WHERE `connections_id`='"+str(id(self))+"';"
+            sql2 ="SELECT `logged_in`,`username_md5` FROM `websockets_conlist` WHERE `connections_id`='"+str(id(self))+"';"
             cur2 = db2.query(sql2)
             row2 = cur2.fetchone()
             var_loggedin=row2[0]
@@ -295,11 +295,11 @@ class SimpleChat(WebSocket):
         print("Connected " + str(self))
         global var_connections_id
         #Make Sure no old rows
-        sql ="DELETE FROM `iot_server`.`websockets_conlist` WHERE `websockets_conlist`.`connections_id`='"+str(id(self))+"';"
+        sql ="DELETE FROM `websockets_conlist` WHERE `websockets_conlist`.`connections_id`='"+str(id(self))+"';"
         cur2 = db2.query(sql)
         print (id(self))
         print (var_connections_id)
-        sql ="INSERT INTO `iot_server`.`websockets_conlist` (`id`, `connections_id`, `username_md5`, `connected`,`IP`) VALUES (NULL, '"+str(id(self))+"', '', '1','"+str(self.address[0])+"');"
+        sql ="INSERT INTO `websockets_conlist` (`id`, `connections_id`, `username_md5`, `connected`,`IP`) VALUES (NULL, '"+str(id(self))+"', '', '1','"+str(self.address[0])+"');"
         cur2 = db2.query(sql)
         if id(self) in var_connections_id:
             del var_connections_id[id(self)]
@@ -317,9 +317,9 @@ class SimpleChat(WebSocket):
     def handleClose(self):
         print("Closed " + str(self))
         global var_connections_id
-        sql ="DELETE FROM `iot_server`.`websockets_conlist` WHERE `websockets_conlist`.`connections_id`='"+str(id(self))+"';"
+        sql ="DELETE FROM `websockets_conlist` WHERE `websockets_conlist`.`connections_id`='"+str(id(self))+"';"
         cur2 = db2.query(sql)
-        sql ="DELETE FROM `iot_server`.`websockets_topics` WHERE `websockets_topics`.`connections_id`='"+str(id(self))+"';"
+        sql ="DELETE FROM `websockets_topics` WHERE `websockets_topics`.`connections_id`='"+str(id(self))+"';"
         cur2 = db2.query(sql)
         if id(self) in var_connections_id:
             del var_connections_id[id(self)]
