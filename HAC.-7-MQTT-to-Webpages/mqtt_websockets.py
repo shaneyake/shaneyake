@@ -104,7 +104,7 @@ def start_mqtt():
     mqttc = mqtt.Client()
     mqttc.on_connect = on_connect
     mqttc.on_message = on_message
-    mqttc.username_pw_set(mqtt_username, mqtt_password)s
+    mqttc.username_pw_set(mqtt_username, mqtt_password)
     mqttc.connect(mqtt_server, mqtt_port, 60)
     mqttc.loop_forever()
 
