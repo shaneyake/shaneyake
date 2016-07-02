@@ -1,4 +1,3 @@
-hi
 <?php
 session_start();$run='test:code';
 $MYSQL_SERVER='';
