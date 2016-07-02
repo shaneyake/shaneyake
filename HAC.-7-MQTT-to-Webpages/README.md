@@ -37,7 +37,7 @@ ALTER TABLE `websockets_acls` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_I
  
  CREATE TABLE IF NOT EXISTS `websockets_conlist` (
 `id` int(10) NOT NULL,
-  `connections_id` int(100) NOT NULL,
+  `connections_id` bigint(100) NOT NULL,
   `username_md5` varchar(32) NOT NULL,
   `connected` int(1) NOT NULL,
   `logged_in` int(1) NOT NULL DEFAULT '0',
@@ -49,7 +49,7 @@ ALTER TABLE `websockets_conlist` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUT
  
 CREATE TABLE IF NOT EXISTS `websockets_topics` (
 `id` int(10) NOT NULL,
-  `connections_id` int(20) NOT NULL,
+  `connections_id` bigint(100) NOT NULL,
   `topic1` varchar(1000) NOT NULL,
   `topic2` varchar(1000) NOT NULL,
   `topic3` varchar(1000) NOT NULL,
