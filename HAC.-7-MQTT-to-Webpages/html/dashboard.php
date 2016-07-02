@@ -52,14 +52,18 @@
 	document.myform.outputtext.scrollTop = document.myform.outputtext.scrollHeight;
   }
   window.addEventListener("load", init, false);
-   function sendSub() {
-	    sub_temp = document.myform.inputtextSub.value;
-		doSend('{"mode": "subscribe", "topic":"'+sub_temp+'"}');
+  function sendSub() {
+       var array_temp={};
+       array_temp['mode']="subscribe";
+       array_temp['topic']=document.myform.inputtextSub.value;
+       doSend(JSON.stringify(array_temp));
    }
    function sendPub() {
-	    pub_temp_topic = document.myform.inputtextPubTopic.value ;
-	    pub_temp = document.myform.inputtextPub.value ;
-		doSend('{"mode": "publish", "topic":"'+pub_temp_topic+'", "message":'+pub_temp+'}');
+       var array_temp={};
+       array_temp['mode']="publish";
+       array_temp['topic']=document.myform.inputtextPubTopic.value ;
+       array_temp['message']=document.myform.inputtextPub.value ;
+       doSend(JSON.stringify(array_temp));
    }
   function clearText() {
 		document.myform.outputtext.value = "";
