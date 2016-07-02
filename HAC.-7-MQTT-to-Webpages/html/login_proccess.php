@@ -36,7 +36,7 @@ if ($usernamemd5==$dbmd5_username&&$passwordmd5==$dbpassword) { //start if 3
 	$_SESSION["WS_TOKEN"] = $WS_token;
 	$sql="INSERT INTO logins (id, md5_username, expiry_date, WS_token, active) VALUES (NULL, '$dbmd5_username', '$dbexpiry_date', '$WS_token' , '1' )";
 	mysqli_query($conn, $sql) or die("Couldn't Create Key");
-	echo("Logging in...<meta http-equiv='refresh' content='5; url=?p=dashboard' />");
+	echo("Logging in...<meta http-equiv='refresh' content='1; url=?p=dashboard' />");
 } else { //close if 3
 	echo("Username or Password Incorrect");
 }
