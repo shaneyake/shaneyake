@@ -22,6 +22,7 @@ if ($numrows!=0){ //start if 2
 	$dbmd5_username = mysql_result($result,$i,"md5_username");
 	$dbpassword = mysql_result($result,$i,"password");
 	$dbgetid=mysql_result($result,$i,"id");
+	$dblogin_period=mysql_result($result,$i,"login_period");
 	$i++;
  }
 
@@ -29,12 +30,12 @@ if ($usernamemd5==$dbmd5_username&&$passwordmd5==$dbpassword) { //start if 3
 	$newkey = uniqid();
 	$newkeymd5=md5($newkey);
 	$WS_token = md5($dbgetid.$newkey);
-	$newexpiry_date = date('Y-m-d h:i:s', time()+(86400 * 30));
+	$newexpiry_date = date('Y-m-d h:i:s', time()+(86400 * $dblogin_period));
 	$_SESSION["USER_VAILD"]= "vaild";
 	$_SESSION["USER_NAME"] = $dbusername;
 	$_SESSION["USER_NAME_KEY"] = $dbmd5_username;
 	$_SESSION["WS_TOKEN"] = $WS_token;
-	$sql="INSERT INTO logins (id, md5_username, expiry_date, WS_token, active) VALUES (NULL, '$dbmd5_username', '$dbexpiry_date', '$WS_token' , '1' )";
+	$sql="INSERT INTO logins (id, md5_username, expiry_date, WS_token, active) VALUES (NULL, '$dbmd5_username', '$newexpiry_date', '$WS_token' , '1' )";
 	mysqli_query($conn, $sql) or die("Couldn't Create Key");
 	echo("Logging in...<meta http-equiv='refresh' content='1; url=?p=dashboard' />");
 } else { //close if 3
