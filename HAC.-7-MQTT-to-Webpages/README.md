@@ -30,7 +30,6 @@ ALTER TABLE `logins` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=
   `username` varchar(100) NOT NULL,
   `topic` varchar(256) NOT NULL,
   `rw` int(1) NOT NULL DEFAULT '1',
-  `device_id` varchar(100) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=latin1;
 ALTER TABLE `websockets_acls` ADD PRIMARY KEY (`id`);
 ALTER TABLE `websockets_acls` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=0;
