@@ -265,7 +265,7 @@ class SimpleChat(WebSocket):
                 numrows = int(cur.rowcount)
                 if(numrows==1):
                     row = cur.fetchone()
-                    if(row[7]>=time.strftime('%Y-%m-%d %H:%M:%S') and row[8]==1):
+                    if(row[3]>=time.strftime('%Y-%m-%d %H:%M:%S') and row[8]==1):
                         print("Allowed " + str(id(self)))
                         print("IP: " + str(self.address[0]))
                         
