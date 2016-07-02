@@ -1,8 +1,4 @@
 <?php if($run!='test:code'){die();}
-$MYSQL_SERVER='';
-$MYSQL_USERNAME='';
-$MYSQL_PASSWORD='';
-$MYSQL_DATABASE='';
 
 $username = $_POST['usr'];
 $username = strtolower($username);
@@ -30,7 +26,6 @@ if ($numrows!=0){ //start if 2
  }
 
 if ($usernamemd5==$dbmd5_username&&$passwordmd5==$dbpassword) { //start if 3
-	if($dbactive>='7'){
 	$newkey = uniqid();
 	$newkeymd5=md5($newkey);
 	$WS_token = md5($dbgetid.$newkey);
@@ -41,17 +36,16 @@ if ($usernamemd5==$dbmd5_username&&$passwordmd5==$dbpassword) { //start if 3
 	$_SESSION["WS_TOKEN"] = $WS_token;
 	$sql="INSERT INTO logins (id, md5_username, expiry_date, WS_token, active) VALUES (NULL, '$dbmd5_username', '$dbexpiry_date', '$WS_token' , '1' )";
 	mysqli_query($conn, $sql) or die("Couldn't Create Key");
-	echo("200");
-	}else{echo("1");}
+	echo("Logging in...<meta http-equiv='refresh' content='5; url=?p=dashboard' />");
 } else { //close if 3
-	echo("2");
+	echo("Username or Password Incorrect");
 }
 
 }else{//close if 2
-	echo("3");
+	echo("User Doesn't Exsit...");
 }
 }else{//close if 1
-	echo("4");
+	echo("No Username or Password");
  }
 ?>
 <!doctype html>
