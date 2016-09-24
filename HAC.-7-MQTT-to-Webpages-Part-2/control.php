@@ -41,10 +41,10 @@
           websocket.close();
   }
   window.addEventListener("load", init, false);
-  function sendSub() {
+  function sendSub(topic) {
        var array_temp={};
        array_temp['mode']="subscribe";
-       array_temp['topic']=document.myform.inputtextSub.value;
+       array_temp['topic']=topic;
        websocket.send(JSON.stringify(array_temp));
    }
    function sendPub(topic,message) {
