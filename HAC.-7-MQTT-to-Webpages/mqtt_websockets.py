@@ -239,6 +239,7 @@ class SimpleChat(WebSocket):
                             temp_send_ws3['mode']="system"
                             temp_send_ws3['status']="PUBLISHED_GRANTED"
                             self.sendMessage(str(json.dumps(temp_send_ws3)))
+                            print(jason_message['message'])
                             mqttc.publish(var_temp_data, jason_message['message'])
                         except:
                             print("Error 4")
