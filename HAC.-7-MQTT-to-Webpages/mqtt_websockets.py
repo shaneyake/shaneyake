@@ -131,7 +131,7 @@ class SimpleChat(WebSocket):
             var_username=row2[1]
         
         except:
-            print("error")
+            print("error 1")
         if (var_loggedin==1):#if Allowed
             if jason_message['mode']=="login":
                 try:
@@ -194,7 +194,7 @@ class SimpleChat(WebSocket):
                         temp_send_ws3['status']="SUBSCRIBED_GRANTED"
                         self.sendMessage(str(json.dumps(temp_send_ws3)))
                     except:
-                        print("Error")
+                        print("Error 2")
                 else:
                     try:
                         temp_send_ws3={}
@@ -203,7 +203,7 @@ class SimpleChat(WebSocket):
                         self.sendMessage(str(json.dumps(temp_send_ws3)))
                         
                     except:
-                        print("Error")
+                        print("Error 3")
                     
             elif jason_message['mode']=="publish":
                 try:
@@ -249,7 +249,7 @@ class SimpleChat(WebSocket):
                             temp_send_ws3['status']="PUBLISHED_DENIED"
                             self.sendMessage(str(json.dumps(temp_send_ws3)))
                         except:
-                            print("Error")
+                            print("Error 4")
                 except Exception as n: #elif "#topic#:"
                     print n
                     print ("Error elif #topic#:")
