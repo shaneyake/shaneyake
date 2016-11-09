@@ -241,7 +241,7 @@ class SimpleChat(WebSocket):
                             self.sendMessage(str(json.dumps(temp_send_ws3)))
                             mqttc.publish(var_temp_data, jason_message['message'])
                         except:
-                            print("Error")
+                            print("Error 4")
                     else:
                         try:
                             temp_send_ws3={}
@@ -249,7 +249,7 @@ class SimpleChat(WebSocket):
                             temp_send_ws3['status']="PUBLISHED_DENIED"
                             self.sendMessage(str(json.dumps(temp_send_ws3)))
                         except:
-                            print("Error 4")
+                            print("Error 5")
                 except Exception as n: #elif "#topic#:"
                     print n
                     print ("Error elif #topic#:")
